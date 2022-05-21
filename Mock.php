@@ -77,8 +77,8 @@ class Mock
             if(count($api_uri) === $request_uri_count){
                 for($i = 0; $i < $request_uri_count; $i++){
                     if($api_uri[$i] !== '*' && $api_uri[$i] !== $request_uri[$i]) break;
+                    if(($i + 1) === $request_uri_count) return $api_route;
                 }
-                return $api_route;
             }
         }
         exit('Route matching failed');
